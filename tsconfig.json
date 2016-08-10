@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "target": "es2015",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "noImplicitReturns": true
+    },
+    "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+    ]
+}

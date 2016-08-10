@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokémap</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-rc.1/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v1.0.0-rc.1/leaflet.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        System.config({
+            map: {
+                jquery: '//code.jquery.com/jquery-2.2.3.min.js'
+            },
+            packages: {
+                linqts: {
+                    defaultExtension: 'ts'
+                },
+                dist: {
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System
+            .import('dist/main')
+            .catch(console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <div id="map" style="height: 700px"></div>
+</body>
+
+</html>

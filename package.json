@@ -1,0 +1,36 @@
+{
+  "name": "pokemap",
+  "version": "1.0.0",
+  "description": "Map to show Pokémon in your area!",
+  "main": "main.ts",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kutyel/pokemap.git"
+  },
+  "keywords": [
+    "pokemon",
+    "map"
+  ],
+  "author": "kutyel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kutyel/pokemap/issues"
+  },
+  "homepage": "https://github.com/kutyel/pokemap#readme",
+  "dependencies": {
+    "concurrently": "^2.0.0",
+    "linqts": "^1.5.0",
+    "lite-server": "^2.2.0",
+    "systemjs": "^0.19.27",
+    "typescript": "^1.8.10"
+  },
+  "devDependencies": {
+    "typings": "^0.8.1"
+  }
+}
