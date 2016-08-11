@@ -1,9 +1,13 @@
-declare var L: any; // TODO: delete this when you have the typings
-
 import { Geolocator } from './geolocation';
 
 let geolocator = new Geolocator();
 
+// helper function to prettify time output
+function f(time) {
+    return (`0${time}`).slice(-2);
+}
+
+// TODO: refactor to es2015 promises to allow compilation to es3 (mobile compatibility)
 export async function init() {
 
     try {
@@ -32,11 +36,15 @@ export async function init() {
 
         // calculate despawn
 
-        const now = new Date(), hh = now.getHours(), mm = now.getMinutes(), ss = now.getSeconds();
+        const now = new Date(), 
+            despawn = new Date(), // TODO: this should come from the API and its unique per Pokémon
+            diff = (despawn.getTime() - now.getTime()) / 1000,
+            mm = Math.floor(diff / 60),
+            ss = (diff - mm * 60).toFixed();
 
         // add Pokémon with custom icon to map
 
-        L.marker([latitude, longitude], { icon }).addTo(map).bindPopup(`Will despawn at ${hh}:${mm}:${ss}.`);
+        L.marker([latitude, longitude], { icon }).addTo(map).bindPopup(`Will despawn in ${f(mm)}:${f(ss)}.`);
 
     } catch (err) {
         console.error(err);
